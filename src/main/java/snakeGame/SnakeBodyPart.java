@@ -3,8 +3,6 @@ package snakeGame;
 import java.util.Objects;
 
 public class SnakeBodyPart extends Entity{
-    private int posX, posY;
-
     public SnakeBodyPart(int posX, int posY) {
         super(posX, posY);
     }
