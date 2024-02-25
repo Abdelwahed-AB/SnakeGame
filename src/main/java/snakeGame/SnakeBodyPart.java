@@ -2,31 +2,13 @@ package snakeGame;
 
 import java.util.Objects;
 
-public class SnakeBodyPart {
+public class SnakeBodyPart extends Entity{
     private int posX, posY;
 
     public SnakeBodyPart(int posX, int posY) {
-        this.posX = posX;
-        this.posY = posY;
+        super(posX, posY);
     }
     public SnakeBodyPart() {}
-    public int posX() {
-        return posX;
-    }
-    public void setPosX(int posX) {
-        this.posX = posX;
-    }
-    public int posY() {
-        return posY;
-    }
-    public void setPosY(int posY) {
-        this.posY = posY;
-    }
-
-    public void copyPos(SnakeBodyPart bodyPart){
-        this.posX = bodyPart.posX();
-        this.posY = bodyPart.posY();
-    }
 
     @Override
     public boolean equals(Object o) {
