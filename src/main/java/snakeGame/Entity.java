@@ -43,6 +43,6 @@ public abstract class Entity {
     }
 
     public boolean isCollidingWith(Entity e){
-        return e.equals(this);
+        return posX == e.posX && posY == e.posY;
     }
 }

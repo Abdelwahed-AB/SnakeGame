@@ -41,12 +41,14 @@ public class Snake {
     public SnakeBodyPart getHead(){
         return body.get(0);
     }
-    public void addBodyPart(){
+    public SnakeBodyPart addBodyPart(){
         SnakeBodyPart tail = body.get(body.size()-1);
         SnakeBodyPart newPart = new SnakeBodyPart();
 
         body.add(newPart);
         newPart.copyPos(tail);
+
+        return newPart;
     }
     public List<SnakeBodyPart> getBody(){
         return body;
