@@ -1,11 +1,11 @@
-package snakeGame.snakeMovement;
+package snakeGame.snake.snakeMovement;
 
-import snakeGame.Snake;
-import snakeGame.SnakeBodyPart;
+import snakeGame.snake.Snake;
+import snakeGame.snake.SnakeBodyPart;
 
-public class SnakeMovementStateDown extends SnakeMovementState{
+public class SnakeMovementStateUp extends SnakeMovementState{
 
-    public SnakeMovementStateDown(Snake snake) {
+    public SnakeMovementStateUp(Snake snake) {
         super(snake);
     }
 
@@ -14,13 +14,13 @@ public class SnakeMovementStateDown extends SnakeMovementState{
         switch (direction){
             case LEFT -> snake.setMovementState(new SnakeMovementStateLeft(snake));
             case RIGHT -> snake.setMovementState(new SnakeMovementStateRight(snake));
-            default -> System.out.println("ignore");
+            default -> System.out.println("ignore down");
         }
     }
 
     @Override
     public void moveHead() {
         SnakeBodyPart head = snake.getHead();
-        head.setPosY(head.posY() - 1);
+        head.setPosY(head.posY() + 1);
     }
 }

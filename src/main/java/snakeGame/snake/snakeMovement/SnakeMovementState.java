@@ -1,6 +1,6 @@
-package snakeGame.snakeMovement;
+package snakeGame.snake.snakeMovement;
 
-import snakeGame.Snake;
+import snakeGame.snake.Snake;
 
 public abstract class SnakeMovementState {
     protected Snake snake;

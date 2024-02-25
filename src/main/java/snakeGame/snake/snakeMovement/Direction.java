@@ -1,4 +1,4 @@
-package snakeGame.snakeMovement;
+package snakeGame.snake.snakeMovement;
 
 public enum Direction {
     UP,

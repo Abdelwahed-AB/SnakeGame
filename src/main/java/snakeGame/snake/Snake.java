@@ -1,11 +1,10 @@
-package snakeGame;
+package snakeGame.snake;
 
 import snakeGame.exceptions.SelfCollisionException;
-import snakeGame.snakeMovement.Direction;
-import snakeGame.snakeMovement.SnakeMovementState;
-import snakeGame.snakeMovement.SnakeMovementStateRight;
+import snakeGame.snake.snakeMovement.Direction;
+import snakeGame.snake.snakeMovement.SnakeMovementState;
+import snakeGame.snake.snakeMovement.SnakeMovementStateRight;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class Snake {
         body.add(new SnakeBodyPart(0, 0));
     }
     public void move(){
-        for (int i = body.size()-1; i > 0; i--){
+        for (int i = length()-1; i > 0; i--){
             SnakeBodyPart prev = body.get(i - 1);
             SnakeBodyPart current = body.get(i);
 
@@ -52,14 +51,16 @@ public class Snake {
     public List<SnakeBodyPart> getBody(){
         return body;
     }
-
     public void checkSelfCollision(){
         SnakeBodyPart head = getHead();
 
-        for(int i = 1; i < body.size(); i++){
-            if (head.equals( body.get(i))){
+        for(int i = 1; i < length(); i++){
+            if (head.isCollidingWith(body.get(i))){
                 throw new SelfCollisionException();
             }
         }
+    }
+    public int length(){
+        return body.size();
     }
 }

@@ -1,11 +1,11 @@
-package snakeGame.snakeMovement;
+package snakeGame.snake.snakeMovement;
 
-import snakeGame.Snake;
-import snakeGame.SnakeBodyPart;
+import snakeGame.snake.Snake;
+import snakeGame.snake.SnakeBodyPart;
 
-public class SnakeMovementStateRight extends SnakeMovementState {
+public class SnakeMovementStateLeft extends SnakeMovementState{
 
-    public SnakeMovementStateRight(Snake snake) {
+    public SnakeMovementStateLeft(Snake snake) {
         super(snake);
     }
 
@@ -21,6 +21,6 @@ public class SnakeMovementStateRight extends SnakeMovementState {
     @Override
     public void moveHead() {
         SnakeBodyPart head = snake.getHead();
-        head.setPosX(head.posX() + 1);
+        head.setPosX(head.posX() - 1);
     }
 }

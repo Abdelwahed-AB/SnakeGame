@@ -1,12 +1,11 @@
-package snakeGame;
+package snakeGame.snake;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import snakeGame.snakeMovement.Direction;
+import snakeGame.snake.snakeMovement.Direction;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 

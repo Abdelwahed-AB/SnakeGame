@@ -1,5 +1,7 @@
 package snakeGame;
 
+import java.util.Objects;
+
 public abstract class Entity {
     protected int posX, posY;
 
@@ -25,5 +27,22 @@ public abstract class Entity {
     }
     public void setPosY(int posY) {
         this.posY = posY;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Entity entity = (Entity) o;
+        return posX == entity.posX && posY == entity.posY;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(posX, posY);
+    }
+
+    public boolean isCollidingWith(Entity e){
+        return e.equals(this);
     }
 }
