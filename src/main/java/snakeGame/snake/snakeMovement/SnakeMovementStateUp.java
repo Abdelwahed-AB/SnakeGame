@@ -21,6 +21,6 @@ public class SnakeMovementStateUp extends SnakeMovementState{
     @Override
     public void moveHead() {
         SnakeBodyPart head = snake.getHead();
-        head.setPosY(head.posY() + 1);
+        head.setPosY(head.posY() - 1);
     }
 }
