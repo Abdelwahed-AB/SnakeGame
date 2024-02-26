@@ -33,6 +33,8 @@ public class AppleEntityManager extends EntityManager {
 
         Apple apple = new Apple(x, y);
         while (isPositionTaken(apple)){
+            x = random.nextInt(GameProperties.WIDTH.value);
+            y = random.nextInt(GameProperties.HEIGHT.value);
             apple.setPosX(x);
             apple.setPosY(y);
         }

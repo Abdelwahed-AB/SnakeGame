@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteTargetsManager">
+    <targets>
+      <target name="WSL - Ubuntu-18.04" type="wsl" uuid="8b99dce6-85ee-4044-bd08-27e0ca517bde">
+        <config>
+          <option name="distributionMsId" value="Ubuntu-18.04" />
+          <option name="projectRootOnTarget" value="{exitCode=0, timeout=false, cancelled=false, stdout=/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2023.2.3/jbr/bin&#10;, stderr=}/SnakeGame" />
+        </config>
+        <ContributedStateBase type="JavaLanguageRuntime">
+          <config>
+            <option name="homePath" value="/mnt/c/Program Files/Eclipse Adoptium/jdk-17.0.2.8-hotspot" />
+            <option name="javaVersionString" value="17" />
+          </config>
+        </ContributedStateBase>
+      </target>
+    </targets>
+  </component>
+</project>

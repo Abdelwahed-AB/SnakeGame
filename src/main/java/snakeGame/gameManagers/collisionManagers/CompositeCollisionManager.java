@@ -1,7 +1,5 @@
 package snakeGame.gameManagers.collisionManagers;
 
-import snakeGame.gameManagers.GameManager;
-
 import java.util.LinkedList;
 import java.util.List;
 

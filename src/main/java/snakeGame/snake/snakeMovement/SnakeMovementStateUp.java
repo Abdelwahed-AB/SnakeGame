@@ -14,7 +14,6 @@ public class SnakeMovementStateUp extends SnakeMovementState{
         switch (direction){
             case LEFT -> snake.setMovementState(new SnakeMovementStateLeft(snake));
             case RIGHT -> snake.setMovementState(new SnakeMovementStateRight(snake));
-            default -> System.out.println("ignore down");
         }
     }
 

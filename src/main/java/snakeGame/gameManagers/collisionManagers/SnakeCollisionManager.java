@@ -16,7 +16,6 @@ public class SnakeCollisionManager extends CollisionManager{
         try {
             snake.checkSelfCollision();
         }catch (SelfCollisionException collisionException){
-            System.out.println("Snake collided with itself");
             throw collisionException;
         }
     }

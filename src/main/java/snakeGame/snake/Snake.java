@@ -1,9 +1,7 @@
 package snakeGame.snake;
 
 import snakeGame.exceptions.SelfCollisionException;
-import snakeGame.snake.snakeMovement.Direction;
-import snakeGame.snake.snakeMovement.SnakeMovementState;
-import snakeGame.snake.snakeMovement.SnakeMovementStateRight;
+import snakeGame.snake.snakeMovement.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -64,5 +62,20 @@ public class Snake {
     }
     public int length(){
         return body.size();
+    }
+
+    public Direction getDirection(){
+        if(movementState.getClass() == SnakeMovementStateRight.class){
+            return Direction.RIGHT;
+        }
+        if(movementState.getClass() == SnakeMovementStateLeft.class){
+            return Direction.LEFT;
+        }
+        if(movementState.getClass() == SnakeMovementStateUp.class){
+            return Direction.UP;
+        }
+        else {
+            return Direction.DOWN;
+        }
     }
 }

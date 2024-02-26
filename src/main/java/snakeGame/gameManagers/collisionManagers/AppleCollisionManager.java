@@ -1,6 +1,5 @@
 package snakeGame.gameManagers.collisionManagers;
 
-import snakeGame.Entity;
 import snakeGame.collectibles.Apple;
 import snakeGame.gameManagers.entityManager.AppleEntityManager;
 import snakeGame.gameManagers.entityManager.SnakeEntityManager;
@@ -26,6 +25,7 @@ public class AppleCollisionManager extends CollisionManager{
             if (apple.isCollidingWith(head)){
                 snakeEntityManager.addSnakeBodyPart();
                 appleEntityManager.removeApple(apple);
+                appleEntityManager.spawnApple();
                 break;
             }
         }

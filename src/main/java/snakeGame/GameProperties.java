@@ -1,8 +1,8 @@
 package snakeGame;
 
 public enum GameProperties {
-    WIDTH(100),
-    HEIGHT(10);
+    WIDTH(150),
+    HEIGHT(15);
 
     public int value;
 
