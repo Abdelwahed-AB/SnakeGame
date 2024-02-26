@@ -1,11 +1,9 @@
 package snakeGame;
 
-import java.io.IOException;
-
 public class TestRun{
     public static void main(String[] args) throws InterruptedException {
         Game game = new Game();
-        game.createApples(5);
+        game.createApples(1);
 
         while (true){
             game.getSnake().changeDirection(game.getBot().pickDirection());

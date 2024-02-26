@@ -4,9 +4,7 @@ import snakeGame.Entity;
 import snakeGame.GameProperties;
 import snakeGame.collectibles.Apple;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class AppleEntityManager extends EntityManager {
     private final List<Apple> apples = new ArrayList<>();
@@ -27,19 +25,20 @@ public class AppleEntityManager extends EntityManager {
     }
 
     private Apple findRandomFreePosition(){
-        Random random = new Random();
-        int x = random.nextInt(GameProperties.WIDTH.value);
-        int y = random.nextInt(GameProperties.HEIGHT.value);
-
-        Apple apple = new Apple(x, y);
-        while (isPositionTaken(apple)){
-            x = random.nextInt(GameProperties.WIDTH.value);
-            y = random.nextInt(GameProperties.HEIGHT.value);
-            apple.setPosX(x);
-            apple.setPosY(y);
+        Set<Entity> entities = new HashSet<>(GAME_ENTITIES);
+        List<Apple> possibleFreePositions = new ArrayList<>();
+        for (int x = 0; x < GameProperties.WIDTH.value; x++){
+            for (int y = 0; y < GameProperties.HEIGHT.value; y++){
+                Apple pos = new Apple(x, y);
+                if(!entities.contains(pos)){
+                    possibleFreePositions.add(pos);
+                }
+            }
         }
 
-        return apple;
+        Random random = new Random();
+
+        return possibleFreePositions.get(random.nextInt(possibleFreePositions.size()));
     }
     private Boolean isPositionTaken(Entity pos){
         return GAME_ENTITIES.contains(pos);
