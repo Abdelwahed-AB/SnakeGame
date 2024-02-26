@@ -2,6 +2,9 @@ package snakeGame;
 
 import snakeGame.bots.StupidBot;
 import snakeGame.collectibles.Apple;
+import snakeGame.exceptions.EndGameException;
+import snakeGame.gameManagers.EndGameManager;
+import snakeGame.gameManagers.ScoreManager;
 import snakeGame.gameManagers.collisionManagers.*;
 import snakeGame.gameManagers.entityManager.AppleEntityManager;
 import snakeGame.gameManagers.entityManager.SnakeEntityManager;
@@ -18,6 +21,10 @@ public class Game {
     private SnakeEntityManager snakeEntityManager;
     private AppleEntityManager appleEntityManager;
     private CompositeCollisionManager compositeCollisionManager;
+    private EndGameManager endGameManager;
+    private ScoreManager scoreManager;
+
+
     private StupidBot bot;
 
     public Game(){
@@ -28,6 +35,8 @@ public class Game {
         snake = new Snake();
         snakeEntityManager = new SnakeEntityManager(snake);
         appleEntityManager = new AppleEntityManager();
+        endGameManager = new EndGameManager(snakeEntityManager);
+        scoreManager = new ScoreManager(snakeEntityManager);
 
         compositeCollisionManager = new CompositeCollisionManager();
         compositeCollisionManager.addCollisionManager(new SnakeCollisionManager(snake));
@@ -85,6 +94,19 @@ public class Game {
             System.out.println(e.getMessage());
             System.exit(-1);
         }
+    }
+
+    public void CheckEndGame(){
+        try {
+            this.endGameManager.check();
+        }catch (EndGameException e) {
+            System.out.println(e.getMessage());
+            System.exit(0);
+        }
+    }
+
+    public int getScore(){
+        return scoreManager.getScore();
     }
 
     public StupidBot getBot(){
