@@ -8,7 +8,6 @@ import snakeGame.gameManagers.entityManager.SnakeEntityManager;
 import snakeGame.snake.SnakeBodyPart;
 import snakeGame.snake.snakeMovement.Direction;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +15,7 @@ import java.util.Map;
 public class StupidBot {
     private final AppleEntityManager appleEntityManager;
     private final SnakeEntityManager snakeEntityManager;
-    private SnakeBodyPart head;
+    private final SnakeBodyPart head;
 
     public StupidBot(AppleEntityManager appleEntityManager, SnakeEntityManager snakeEntityManager) {
         this.appleEntityManager = appleEntityManager;

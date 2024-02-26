@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Snake {
     private SnakeMovementState movementState = new SnakeMovementStateRight(this);
-    private List<SnakeBodyPart> body = new LinkedList<>();
+    private final List<SnakeBodyPart> body = new LinkedList<>();
 
     public Snake() {
         reset();
