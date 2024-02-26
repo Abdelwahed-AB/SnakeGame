@@ -40,9 +40,6 @@ public class AppleEntityManager extends EntityManager {
 
         return possibleFreePositions.get(random.nextInt(possibleFreePositions.size()));
     }
-    private Boolean isPositionTaken(Entity pos){
-        return GAME_ENTITIES.contains(pos);
-    }
 
     public List<Apple> apples() {
         return apples;

@@ -1,7 +1,7 @@
 package snakeGame;
 
 public class GameRunner {
-    private Game game;
+    private final Game game;
 
     public GameRunner() {
         game = new Game();
