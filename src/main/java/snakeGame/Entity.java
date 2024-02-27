@@ -31,8 +31,8 @@ public abstract class Entity {
 
     @Override
     public boolean equals(Object o) {
+        if (o == null) return false;
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
         Entity entity = (Entity) o;
         return posX == entity.posX && posY == entity.posY;
     }

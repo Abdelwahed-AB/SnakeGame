@@ -41,14 +41,15 @@ public class StupidBot {
 
         Direction snakeDir = snakeEntityManager.snake().getDirection();
 
-        Direction movDir;
-        if(Math.abs(xDist) > Math.abs(yDist)){
+        Direction movDir = snakeDir;
+
+        if (Math.abs(xDist) > 0){
             if (xMov.isOpposite(snakeDir)){
                 movDir = yMov;
             }else{
                 movDir = xMov;
             }
-        }else{
+        }else if(Math.abs(yDist) > 0){
             if (yMov.isOpposite(snakeDir)){
                 movDir = xMov;
             }else {

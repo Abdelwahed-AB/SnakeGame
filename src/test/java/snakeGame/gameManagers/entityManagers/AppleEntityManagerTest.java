@@ -22,9 +22,8 @@ public class AppleEntityManagerTest {
     @DisplayName("Should generate an apple at a random position")
     public void should_generate_apple_at_random_pos(){
         Apple apple = appleEntityManager.spawnApple();
-
         Assertions.assertTrue(apple.posX() < GameProperties.WIDTH.value);
-        Assertions.assertTrue(apple.posX() < GameProperties.HEIGHT.value);
+        Assertions.assertTrue(apple.posY() < GameProperties.HEIGHT.value);
     }
 
     @Test
@@ -34,6 +33,6 @@ public class AppleEntityManagerTest {
         Apple res = appleEntityManager.removeApple(apple);
 
         Assertions.assertEquals(res, apple);
-        Assertions.assertEquals(0, EntityManager.GAME_ENTITIES.size());
+        Assertions.assertFalse(EntityManager.GAME_ENTITIES.contains(apple));
     }
 }

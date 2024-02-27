@@ -17,8 +17,9 @@ public class GameRunner {
         game.getSnake().changeDirection(game.getBot().pickDirection());
         game.getSnake().move();
         game.checkCollisions();
+        game.checkEndGame();
 
-        Thread.sleep(125);
+        Thread.sleep(GameProperties.DELTA_TIME.value);
         clear();
         game.drawGame();
         System.out.println("Score: "+ConsoleColors.ANSI_PURPLE+game.getScore()+ConsoleColors.ANSI_RESET);

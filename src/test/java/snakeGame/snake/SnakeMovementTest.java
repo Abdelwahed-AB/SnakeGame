@@ -32,7 +32,7 @@ public class SnakeMovementTest {
     @Test
     @DisplayName("Should move the snake's head down")
     public void should_move_snake_down(){
-        SnakeBodyPart expected = new SnakeBodyPart(0, -1);
+        SnakeBodyPart expected = new SnakeBodyPart(0, 1);
         snake.changeDirection(Direction.DOWN);
         snake.move();
 
@@ -42,7 +42,7 @@ public class SnakeMovementTest {
     @Test
     @DisplayName("Should move the snake's head up")
     public void should_move_snake_up(){
-        SnakeBodyPart expected = new SnakeBodyPart(0, 1);
+        SnakeBodyPart expected = new SnakeBodyPart(0, -1);
         snake.changeDirection(Direction.UP);
         snake.move();
 

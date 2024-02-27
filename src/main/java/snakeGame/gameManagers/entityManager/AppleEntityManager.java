@@ -26,12 +26,15 @@ public class AppleEntityManager extends EntityManager {
 
     private Apple findRandomFreePosition(){
         Set<Entity> entities = new HashSet<>(GAME_ENTITIES);
+
         List<Apple> possibleFreePositions = new ArrayList<>();
         for (int x = 0; x < GameProperties.WIDTH.value; x++){
             for (int y = 0; y < GameProperties.HEIGHT.value; y++){
-                Apple pos = new Apple(x, y);
+                Entity pos = new Apple(x, y);
                 if(!entities.contains(pos)){
-                    possibleFreePositions.add(pos);
+                    Apple apple = new Apple();
+                    apple.copyPos(pos);
+                    possibleFreePositions.add(apple);
                 }
             }
         }

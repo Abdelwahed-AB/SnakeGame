@@ -54,24 +54,26 @@ public class Game {
         for(int row = 0; row < GameProperties.HEIGHT.value; row++){
             board.add(new ArrayList<>());
             for(int col = 0; col < GameProperties.WIDTH.value; col++){
-                board.get(row).add(" ");
+                board.get(row).add(ConsoleColors.ANSI_BLACK_BACKGROUND + "   " + ConsoleColors.ANSI_RESET);
             }
         }
 
-        for (SnakeBodyPart snakeBodyPart : snakeBody){
-            board.get(snakeBodyPart.posY()).set(snakeBodyPart.posX(), ConsoleColors.ANSI_GREEN + "*" + ConsoleColors.ANSI_RESET);
-        }
-
-        board.get(snake.getHead().posY()).set(snake.getHead().posX(), ConsoleColors.ANSI_CYAN + "$" + ConsoleColors.ANSI_RESET);
-
         for (Apple apple : apples){
-            board.get(apple.posY()).set(apple.posX(), ConsoleColors.ANSI_RED + "a" + ConsoleColors.ANSI_RESET);
+            board.get(apple.posY()).set(apple.posX(),ConsoleColors.ANSI_RED_BACKGROUND + "   " + ConsoleColors.ANSI_RESET);
         }
+
+        for (SnakeBodyPart snakeBodyPart : snakeBody){
+            board.get(snakeBodyPart.posY()).set(snakeBodyPart.posX(), ConsoleColors.ANSI_GREEN_BACKGROUND +"   " + ConsoleColors.ANSI_RESET);
+        }
+
+        board.get(snake.getHead().posY()).set(snake.getHead().posX(), ConsoleColors.ANSI_YELLOW_BACKGROUND + ConsoleColors.ANSI_BLACK +  "^_^" + ConsoleColors.ANSI_RESET);
 
         System.out.println(
                 board.stream()
                         .map(
-                                list -> "|" + list.stream().map(String::valueOf).collect(Collectors.joining()) + "|"
+                                list -> ConsoleColors.ANSI_WHITE_BACKGROUND + " " + ConsoleColors.ANSI_RESET
+                                        + list.stream().map(String::valueOf).collect(Collectors.joining())
+                                        + ConsoleColors.ANSI_WHITE_BACKGROUND + " " + ConsoleColors.ANSI_RESET
                         )
                         .collect(Collectors.joining("\n"))
         );
@@ -96,7 +98,7 @@ public class Game {
         }
     }
 
-    public void CheckEndGame(){
+    public void checkEndGame(){
         try {
             this.endGameManager.check();
         }catch (EndGameException e) {
